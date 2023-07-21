@@ -5,18 +5,19 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
+        - /Axes1
         - /VIOGroup1
         - /VIOGroup1/VIOPath1
-        - /VIOGroup1/VIOPath1/Status1
         - /VIOGroup1/CameraMarker1
         - /VIOGroup1/PointCloud1
+        - /VIOGroup1/PointCloud1/Status1
         - /VIOGroup1/HistoryPointCloud1
         - /VIOGroup1/track_image1
         - /GlobalGroup1/CarModel1
         - /TF1/Frames1
         - /Image1
       Splitter Ratio: 0.4651159942150116
-    Tree Height: 109
+    Tree Height: 474
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -32,7 +33,6 @@ Panels:
     Name: Views
     Splitter Ratio: 0.5
   - Class: rviz/Time
-    Experimental: false
     Name: Time
     SyncMode: 0
     SyncSource: Image
@@ -68,12 +68,14 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Class: rviz/Axes
+    - Alpha: 1
+      Class: rviz/Axes
       Enabled: true
       Length: 0.5
       Name: Axes
       Radius: 0.05000000074505806
       Reference Frame: <Fixed Frame>
+      Show Trail: false
       Value: true
     - Class: rviz/Group
       Displays:
@@ -110,6 +112,7 @@ Visualization Manager:
             Z: 0
           Pose Color: 255; 85; 255
           Pose Style: None
+          Queue Size: 10
           Radius: 0.029999999329447746
           Shaft Diameter: 0.10000000149011612
           Shaft Length: 0.10000000149011612
@@ -131,9 +134,7 @@ Visualization Manager:
           Enabled: false
           Invert Rainbow: false
           Max Color: 255; 255; 255
-          Max Intensity: 4096
           Min Color: 0; 0; 0
-          Min Intensity: 0
           Name: PointCloud
           Position Transformer: XYZ
           Queue Size: 10
@@ -161,9 +162,7 @@ Visualization Manager:
           Enabled: false
           Invert Rainbow: false
           Max Color: 255; 255; 255
-          Max Intensity: 4096
           Min Color: 0; 0; 0
-          Min Intensity: 0
           Name: PointCloud
           Position Transformer: XYZ
           Queue Size: 10
@@ -209,6 +208,7 @@ Visualization Manager:
             Z: 0
           Pose Color: 255; 85; 255
           Pose Style: None
+          Queue Size: 10
           Radius: 0.029999999329447746
           Shaft Diameter: 0.10000000149011612
           Shaft Length: 0.10000000149011612
@@ -220,7 +220,7 @@ Visualization Manager:
           Marker Topic: /vilo/camera_pose_visual
           Name: CameraMarker
           Namespaces:
-            CameraPoseVisualization: true
+            {}
           Queue Size: 100
           Value: true
         - Alpha: 1
@@ -235,12 +235,10 @@ Visualization Manager:
           Color: 255; 255; 255
           Color Transformer: Intensity
           Decay Time: 0
-          Enabled: true
+          Enabled: false
           Invert Rainbow: false
           Max Color: 255; 255; 255
-          Max Intensity: 4096
           Min Color: 0; 0; 0
-          Min Intensity: 0
           Name: PointCloud
           Position Transformer: XYZ
           Queue Size: 10
@@ -252,7 +250,7 @@ Visualization Manager:
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
-          Value: true
+          Value: false
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
@@ -268,9 +266,7 @@ Visualization Manager:
           Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
-          Max Intensity: 4096
           Min Color: 0; 0; 0
-          Min Intensity: 0
           Name: HistoryPointCloud
           Position Transformer: XYZ
           Queue Size: 10
@@ -316,6 +312,7 @@ Visualization Manager:
             Z: 0
           Pose Color: 255; 85; 255
           Pose Style: None
+          Queue Size: 10
           Radius: 0.029999999329447746
           Shaft Diameter: 0.10000000149011612
           Shaft Length: 0.10000000149011612
@@ -356,6 +353,7 @@ Visualization Manager:
       Head Length: 0.30000001192092896
       Head Radius: 0.10000000149011612
       Name: PoseWithCovariance
+      Queue Size: 10
       Shaft Length: 1
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -385,32 +383,120 @@ Visualization Manager:
       Value: true
     - Class: rviz/TF
       Enabled: true
+      Filter (blacklist): ""
+      Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        a1_body:
+        FL_calf:
+          Value: false
+        FL_foot:
           Value: true
+        FL_hip:
+          Value: false
+        FL_thigh:
+          Value: false
+        FL_thigh_shoulder:
+          Value: false
+        FR_calf:
+          Value: false
+        FR_foot:
+          Value: true
+        FR_hip:
+          Value: false
+        FR_thigh:
+          Value: false
+        FR_thigh_shoulder:
+          Value: false
+        RL_calf:
+          Value: false
+        RL_foot:
+          Value: false
+        RL_hip:
+          Value: false
+        RL_thigh:
+          Value: false
+        RL_thigh_shoulder:
+          Value: false
+        RR_calf:
+          Value: false
+        RR_foot:
+          Value: false
+        RR_hip:
+          Value: false
+        RR_thigh:
+          Value: false
+        RR_thigh_shoulder:
+          Value: false
+        a1_body:
+          Value: false
         a1_world:
+          Value: false
+        base:
           Value: true
         body:
-          Value: true
+          Value: false
         camera:
+          Value: false
+        imu_link:
+          Value: true
+        trunk:
           Value: true
         world:
           Value: true
+      Marker Alpha: 1
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
+        FL_calf:
+          FL_foot:
+            {}
+        FL_hip:
+          FL_thigh_shoulder:
+            {}
+        FL_thigh:
+          {}
+        FR_calf:
+          FR_foot:
+            {}
+        FR_hip:
+          FR_thigh_shoulder:
+            {}
+        FR_thigh:
+          {}
+        RL_calf:
+          RL_foot:
+            {}
+        RL_hip:
+          RL_thigh_shoulder:
+            {}
+        RL_thigh:
+          {}
+        RR_calf:
+          RR_foot:
+            {}
+        RR_hip:
+          RR_thigh_shoulder:
+            {}
+        RR_thigh:
+          {}
+        a1_body:
+          {}
         a1_world:
-          world:
-            body:
-              a1_body:
-                {}
-              camera:
-                {}
+          {}
+        base:
+          trunk:
+            imu_link:
+              {}
+        body:
+          {}
+        camera:
+          {}
+        world:
+          {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -428,9 +514,7 @@ Visualization Manager:
       Enabled: false
       Invert Rainbow: false
       Max Color: 255; 255; 255
-      Max Intensity: 4096
       Min Color: 0; 0; 0
-      Min Intensity: 0
       Name: PointCloud2
       Position Transformer: XYZ
       Queue Size: 10
@@ -448,7 +532,7 @@ Visualization Manager:
       Marker Topic: /a1_robot_visualizer
       Name: MarkerArray
       Namespaces:
-        a1_robot: true
+        {}
       Queue Size: 100
       Value: true
     - Alpha: 1
@@ -460,6 +544,7 @@ Visualization Manager:
       Head Length: 0.30000001192092896
       Head Radius: 0.10000000149011612
       Name: Pose
+      Queue Size: 10
       Shaft Length: 1
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
@@ -504,35 +589,35 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 2.114471912384033
+      Distance: 28.16267204284668
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
+      Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.025557637214660645
-        Y: -0.5130211114883423
-        Z: 0.3814223110675812
+        X: 1.2737655639648438
+        Y: 0.8515220880508423
+        Z: 0.3814259469509125
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5897977352142334
+      Pitch: 0.7297977805137634
       Target Frame: world
-      Value: ThirdPersonFollower (rviz)
-      Yaw: 3.932464122772217
+      Yaw: 3.1124463081359863
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 741
+  Height: 1016
   Hide Left Dock: false
   Hide Right Dock: true
   Image:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001c30000028bfc0200000013fb000000100044006900730070006c006100790073010000003d000000f0000000c900fffffffb000000160074007200610063006b005f0069006d006100670065000000017e0000013a0000001600fffffffb0000001200530065006c0065006300740069006f006e0000000028000003990000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000001200720061007700200049006d0061006700650000000028000000300000000000000000fb00000012007200610077005f0069006d0061006700650000000028000000f90000000000000000fb0000001a0074007200610063006b0065006400200069006d0061006700650000000028000001d50000000000000000fb00000020006c006f006f0070005f006d0061007400630068005f0069006d0061006700650000000192000000d60000000000000000fb000000100044006900730070006c006100790073000000002800000399000000c900fffffffc000000280000011e0000000000fffffffa000000000100000002fb0000001200720061007700200049006d0061006700650000000000ffffffff0000000000000000fb0000001a0074007200610063006b0065006400200069006d0061006700650100000000000002370000000000000000fb0000001000410052005f0069006d0061006700650100000373000000160000000000000000fb0000001200720061007700200069006d006100670065010000038f000000160000000000000000fb00000020006c006f006f0070005f006d0061007400630068005f0049006d0061006700650000000213000000870000001600fffffffb0000000a0049006d0061006700650100000133000001950000001600ffffff00000001000001ae000002effc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d000002ef000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000056d0000005ffc0100000002fc000000000000056d0000000000fffffffa000000000200000002fb0000000a0049006d0061006700650100000000ffffffff0000000000000000fb0000000800540069006d00650000000356000000400000003900fffffffb0000000800540069006d00650100000000000004500000000000000000000003800000028b00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001c30000039efc0200000013fb000000100044006900730070006c006100790073010000003d0000025d000000c900fffffffb000000160074007200610063006b005f0069006d006100670065000000017e0000013a0000001600fffffffb0000001200530065006c0065006300740069006f006e0000000028000003990000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000001200720061007700200049006d0061006700650000000028000000300000000000000000fb00000012007200610077005f0069006d0061006700650000000028000000f90000000000000000fb0000001a0074007200610063006b0065006400200069006d0061006700650000000028000001d50000000000000000fb00000020006c006f006f0070005f006d0061007400630068005f0069006d0061006700650000000192000000d60000000000000000fb000000100044006900730070006c006100790073000000002800000399000000c900fffffffc000000280000011e0000000000fffffffa000000000100000002fb0000001200720061007700200049006d0061006700650000000000ffffffff0000000000000000fb0000001a0074007200610063006b0065006400200069006d0061006700650100000000000002370000000000000000fb0000001000410052005f0069006d0061006700650100000373000000160000000000000000fb0000001200720061007700200069006d006100670065010000038f000000160000000000000000fb00000020006c006f006f0070005f006d0061007400630068005f0049006d0061006700650000000213000000870000001600fffffffb0000000a0049006d00610067006501000002a00000013b0000001600ffffff00000001000001ae000002effc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d000002ef000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000056d0000005ffc0100000002fc000000000000056d0000000000fffffffa000000000200000002fb0000000a0049006d0061006700650100000000ffffffff0000000000000000fb0000000800540069006d00650000000356000000400000003900fffffffb0000000800540069006d00650100000000000004500000000000000000000001d30000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -541,9 +626,9 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: true
-  Width: 1353
-  X: 67
-  Y: 952
+  Width: 924
+  X: 996
+  Y: 27
   loop_match_Image:
     collapsed: false
   track_image:
